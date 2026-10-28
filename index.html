@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5fff5">
+  <title>FreshBasket | Fruit Shop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="FreshBasket home"><span class="brand-icon">✳</span> freshbasket<span class="brand-dot">.</span></a>
+    <nav><a href="#shop">Shop</a><a href="#about">Why FreshBasket</a></nav>
+    <a class="header-cta" href="#shop">Explore fruits <span>↗</span></a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-dot"></span> FRESHNESS, DELIVERED DAILY</p>
+        <h1>Good food.<br><span>Good mood.</span></h1>
+        <p class="hero-description">Brighten your day with nature's sweetest picks. Fresh fruits, honest prices, and goodness in every bite.</p>
+        <a class="primary-button" href="#shop">Shop fresh fruits <span>→</span></a>
+        <div class="hero-note"><span class="note-stars">★★★★★</span><span>Loved by fruit fans everywhere</span></div>
+      </div>
+      <div class="hero-art" aria-label="Fresh fruit selection">
+        <div class="sunburst"></div>
+        <div class="hero-fruit hero-orange">🍊</div><div class="hero-fruit hero-apple">🍎</div>
+        <div class="hero-fruit hero-grapes">🍇</div><div class="hero-fruit hero-mango">🥭</div>
+        <div class="hero-fruit hero-strawberry">🍓</div><div class="hero-fruit hero-avocado">🥑</div>
+        <div class="art-label"><span>100%</span><br>natural goodness</div>
+        <span class="sparkle sparkle-one">✳</span><span class="sparkle sparkle-two">✦</span>
+      </div>
+    </section>
+
+    <section class="benefits" id="about">
+      <div><span class="benefit-icon">🌱</span><span><strong>Farm fresh</strong><small>Picked with care</small></span></div>
+      <div><span class="benefit-icon">🍃</span><span><strong>Feel-good food</strong><small>Nature's best for you</small></span></div>
+      <div><span class="benefit-icon">💚</span><span><strong>Good value</strong><small>Freshness for less</small></span></div>
+    </section>
+
+    <section class="shop-section" id="shop">
+      <div class="section-heading">
+        <div><p class="eyebrow">THE GOOD STUFF</p><h2>Today's fresh picks<span>.</span></h2><p class="section-subtitle">A little color, a lot of goodness.</p></div>
+        <button class="primary-button add-button" id="addFruitBtn" type="button">＋ Add fruit</button>
+      </div>
+      <div class="shop-tools">
+        <label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Search your favorite fruit..." aria-label="Search fruits"></label>
+        <span class="results-count" id="resultsCount">Loading fruits…</span>
+      </div>
+      <div id="notice" class="notice" role="status" aria-live="polite"></div>
+      <div class="fruit-grid" id="fruitGrid">
+        <div class="loading-card">Gathering fresh picks…</div>
+      </div>
+    </section>
+  </main>
+
+  <footer><a class="brand" href="/"><span class="brand-icon">✳</span> freshbasket<span class="brand-dot">.</span></a><p>Fresh choices. Brighter days. © <span id="year"></span> FreshBasket</p><span class="footer-tag">MADE WITH NATURE IN MIND</span></footer>
+
+  <dialog id="fruitDialog" class="fruit-dialog">
+    <form id="fruitForm">
+      <div class="dialog-heading"><div><p class="eyebrow" id="formEyebrow">FRESH ARRIVAL</p><h2 id="formTitle">Add a fruit</h2></div><button class="icon-button" id="closeDialogBtn" type="button" aria-label="Close dialog">×</button></div>
+      <input type="hidden" id="fruitId">
+      <label>Fruit name<input id="fruitName" name="name" required maxlength="100" placeholder="e.g. Dragon fruit"></label>
+      <div class="form-row"><label>Price (₹)<input id="fruitPrice" name="price" type="number" min="0" max="99999999.99" step="0.01" required placeholder="120"></label><label>Quantity<input id="fruitQuantity" name="quantity" type="number" min="0" step="1" required value="0"></label></div>
+      <label>Image URL (optional)<input id="fruitImage" name="image" type="url" maxlength="500" placeholder="https://example.com/fruit.jpg"></label>
+      <p class="form-error" id="formError" role="alert"></p>
+      <div class="dialog-actions"><button type="button" class="secondary-button" id="cancelBtn">Cancel</button><button type="submit" class="primary-button" id="saveBtn">Save fruit <span>→</span></button></div>
+    </form>
+  </dialog>
+  <dialog id="deleteDialog" class="fruit-dialog confirm-dialog">
+    <div class="dialog-heading"><div><p class="eyebrow">ONE LAST CHECK</p><h2>Remove this fruit?</h2></div><button class="icon-button" id="closeDeleteBtn" type="button" aria-label="Close dialog">×</button></div>
+    <p>This will permanently remove the fruit from your product list.</p>
+    <div class="dialog-actions"><button type="button" class="secondary-button" id="keepBtn">Keep fruit</button><button type="button" class="danger-button" id="confirmDeleteBtn">Yes, delete</button></div>
+  </dialog>
+</body>
+</html>
